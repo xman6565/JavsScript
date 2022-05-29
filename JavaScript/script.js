@@ -23,15 +23,15 @@ let something;
 console.log(something, amIFat);
 
 /* Array 배열 */
-const mon = "mon";
-const tue = "tue";
-const wen = "wen";
-const thu = "thu";
-const fri = "fri";
-const sat = "sat";
-const sun = "sun";
+const mon = "월";
+const tue = "화";
+const wen = "수";
+const thu = "목";
+const fri = "금";
+const sat = "토";
+const sun = "일";
 
-const days0fweek = ["mon" , "tue" , "wen" , "thu" , "fri" , "sta"];
+const days0fweek = [mon , tue , wen , thu , fri , sat];
 
 const nonsense = [1, 2, "hello", false, null, true, undefined, "hihi"];
 
@@ -40,5 +40,15 @@ console.log(days0fweek);
 console.log(nonsense[2]);
 
 // array 안에 요일 더 받아오기
-days0fweek.push("sun");
+days0fweek.push(sun);
 console.log(days0fweek);
+
+
+/* function 계속 반복해서 사용할 수 있는 코드*/
+function sayHello(nameOfPerson, age){
+    console.log("안녕 내이름은 " + nameOfPerson + "나이는 " + age + "살이야.");
+}
+
+sayHello("하나", 20);
+sayHello("두울", 28);
+sayHello("세엣", 30);
