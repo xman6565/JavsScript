@@ -2,6 +2,7 @@ const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 //const loginButton = document.querySelector("#login-form button");
 
 
@@ -10,15 +11,26 @@ function onLoginSubmit(event){
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
     const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
     //greeting.innerText = "Hello " + username;
+    paintGreetings(username);
+}
+
+function paintGreetings(username){
     greeting.innerText = `Hello ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-
-loginForm.addEventListener("submit",onLoginSubmit);
-
+if(savedUsername === null){
+    // 폼에서 보여줌
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+}else{
+    // h1 id greeting으로 보여줌
+   paintGreetings(savedUsername);
+}
 
 //loginButton.addEventListener("click", onLoginBtnClick);
 
